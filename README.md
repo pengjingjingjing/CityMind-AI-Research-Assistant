@@ -1,52 +1,128 @@
-# CityMind 城市研究助手｜AI 产品经理作品集
+# CityMind AI Research Assistant
 
-CityMind 是一个面向城市规划、产业研究、规划咨询和城市更新场景的 AI 研究助手。
+**SEO/GEO Content Optimization Case + Live AI Research Tool**
 
-用户输入研究主题、区域对象、资料摘要和使用场景后，系统调用大模型 API，自动生成：
-- 主题理解
-- 研究框架
-- 核心判断
-- 政策 / 产业 / 空间分析维度
-- PPT 页标题建议
-- 下一步资料清单
-- 风险与注意事项
+CityMind is a lightweight AI research assistant for urban planning, city research and policy analysis. It turns an early-stage research question into a structured starting brief containing an executive summary, research framework, preliminary findings, data gaps, presentation outline and next-step tasks.
 
-## 运行方式
+## Live links
+
+- Product website: https://pengjingjingjing.github.io/CityMind-AI-Research-Assistant/
+- Streamlit demo: https://citymind-ai-research-assistant-i2bqorzpfcccwe7gr3ra87.streamlit.app/
+- Repository: https://github.com/pengjingjingjing/CityMind-AI-Research-Assistant
+
+## Why this project matches an SEO/GEO content role
+
+This repository combines two connected parts:
+
+1. **A real, runnable product**
+   - Streamlit interface
+   - Demo mode
+   - OpenAI-compatible API mode
+   - Structured prompt
+   - Markdown export
+   - Accuracy and data-gap notices
+
+2. **A publishable SEO/GEO content website**
+   - Descriptive title, meta description and headings
+   - Independent URLs for product, workflow, limitations and case study
+   - Direct-answer modules for AI search
+   - Internal links and content cluster
+   - `robots.txt` and `sitemap.xml`
+   - WebApplication and Article structured data
+   - Clear author, update date and project limitations
+
+## Important project boundary
+
+The Streamlit tool is real and runnable. The keyword research and page-optimization work are an independently initiated SEO/GEO practice project. The repository does **not** claim real ranking, traffic or conversion growth before Search Console and GA4 data are collected.
+
+The current application uses a **single-stage structured prompt**. A two-stage process — outline validation followed by section expansion — is listed as a future iteration, not an existing feature.
+
+## Repository structure
+
+```text
+.
+├── app.py                         # Streamlit application
+├── requirements.txt
+├── .streamlit/
+│   ├── config.toml
+│   └── secrets.toml.example
+├── docs/                          # GitHub Pages website
+│   ├── index.html
+│   ├── how-it-works.html
+│   ├── accuracy-and-limitations.html
+│   ├── seo-geo-case-study.html
+│   ├── articles/
+│   ├── assets/styles.css
+│   ├── robots.txt
+│   └── sitemap.xml
+├── PRD_CityMind.md
+├── Prompt_Design.md
+├── SEO_GEO_Case_Study.md
+├── UPLOAD_TO_GITHUB.md
+└── SECURITY_NOTICE.md
+```
+
+## Run the Streamlit app locally
 
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
-进入页面后，在左侧填写 API Key、API URL 和模型名称即可调用真实大模型。
-默认按 OpenAI-compatible Chat Completions 格式发送请求，适配支持该格式的模型服务。
+Demo mode works without an API key.
 
-## 作品集价值
+For live API mode, copy `.streamlit/secrets.toml.example` to `.streamlit/secrets.toml` and add your own key. Never commit `secrets.toml`.
 
-这个 Demo 不是简单页面，而是把城乡规划/规划咨询中的真实工作流产品化：
+## Deploy the Streamlit app
 
-资料收集 → 信息整理 → 研究判断 → 报告框架 → PPT 汇报
+In Streamlit Community Cloud:
 
-体现能力：
-- AI 产品设计
-- 用户需求分析
-- Prompt 设计
-- 信息架构
-- 结构化输出
-- 指标设计
-- 可运行原型搭建
+1. Select this GitHub repository.
+2. Set the main file to `app.py`.
+3. Open **App settings → Secrets**.
+4. Add:
 
-## 简历可用描述
+```toml
+LLM_API_KEY = "your_new_key"
+LLM_API_URL = "your_openai_compatible_chat_completions_url"
+LLM_MODEL = "your_model_name"
+```
 
-**CityMind 城市研究助手｜AI 产品 Demo｜独立设计与原型搭建**
+5. Choose a descriptive custom subdomain when available.
 
-- 基于城乡规划与规划咨询场景，独立设计并搭建 CityMind 城市研究助手，支持用户输入研究主题、区域对象和资料摘要，调用大模型 API 生成研究框架、核心判断、PPT 目录和资料清单。
-- 完成产品定位、用户画像、需求拆解、Prompt 模板、交互流程和指标体系设计，将规划项目中的资料核验、空间分析和报告撰写经验转化为 AI 产品能力。
-- 使用 Streamlit + 大模型 API 搭建可运行 Demo，支持 Demo 模式、真实 API 调用和 Markdown 结果下载，验证 AI 在城市研究/产业研究前期工作中的效率提升价值。
+## Publish the SEO/GEO website with GitHub Pages
 
-## 面试介绍话术
+Open the repository on GitHub:
 
-这个项目不是为了展示我会写一个简单页面，而是想证明我能把专业背景转化成 AI 产品场景。
-我从城乡规划和规划咨询中的真实工作流出发，发现前期资料整理、政策研究和报告框架搭建非常耗时，于是设计了 CityMind。
-它通过结构化 Prompt 调用大模型，把用户输入的资料转化为研究框架、核心判断、PPT 目录和资料清单。
-对 AI 产品经理岗位来说，这个项目体现了我的用户场景理解、需求拆解、Prompt 设计、产品指标意识和原型落地能力。
+1. Go to **Settings → Pages**.
+2. Under **Build and deployment**, choose **Deploy from a branch**.
+3. Select the `main` branch.
+4. Select the `/docs` folder.
+5. Save.
+
+The expected site address is:
+
+```text
+https://pengjingjingjing.github.io/CityMind-AI-Research-Assistant/
+```
+
+## After publishing
+
+- Add the GitHub Pages site to Google Search Console.
+- Submit `sitemap.xml`.
+- Inspect and request indexing for the homepage.
+- Add GA4 only after creating a real property.
+- Record real impressions, clicks, queries and content changes.
+- Do not add invented user counts, rankings, reviews or traffic results.
+
+## Suggested interview reading order
+
+1. Product website
+2. SEO/GEO case-study page
+3. Live Streamlit demo
+4. GitHub source and prompt documentation
+
+## Author
+
+Peng Jing  
+Content Operations · SEO/GEO · AI Content
