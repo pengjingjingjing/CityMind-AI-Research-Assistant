@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How CityMind Works: AI Research Brief Workflow</title>
+  <meta name="description" content="Learn how CityMind uses a structured prompt to turn urban planning and policy questions into research briefs with data-gap warnings.">
+  <link rel="canonical" href="https://pengjingjingjing.github.io/CityMind-AI-Research-Assistant/how-it-works.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="How CityMind Works: AI Research Brief Workflow">
+  <meta property="og:description" content="Learn how CityMind uses a structured prompt to turn urban planning and policy questions into research briefs with data-gap warnings.">
+  <meta property="og:url" content="https://pengjingjingjing.github.io/CityMind-AI-Research-Assistant/how-it-works.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="assets/styles.css">
+  
+</head>
+<body>
+  
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="index.html">🏙️ CityMind</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+<a href="how-it-works.html">How it works</a>
+<a href="accuracy-and-limitations.html">Accuracy</a>
+<a href="seo-geo-case-study.html">Case study</a>
+      <a class="button" href="https://citymind-ai-research-assistant-i2bqorzpfcccwe7gr3ra87.streamlit.app/" target="_blank" rel="noopener">Try the Demo</a>
+    </div>
+  </nav>
+</header>
+
+  
+<main id="main">
+<section class="section">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Home</a> / How it works</div>
+    <article>
+      <div class="eyebrow">Workflow and prompt design</div>
+      <h1>How CityMind Turns a Research Question into a Structured Brief</h1>
+      <p class="meta">By Peng Jing · Updated August 2026</p>
+
+      <div class="direct-answer">
+        CityMind currently uses a <strong>structured single-stage prompt</strong>. The prompt defines the role, evidence boundaries, output order and writing style before requesting one complete research brief.
+      </div>
+
+      <h2>Step 1: Define the research scope</h2>
+      <p>The user enters a focused research topic, study area, use scenario, target reader, output language and any available materials. A focused question is more useful than a broad keyword.</p>
+
+      <h2>Step 2: Set content and evidence rules</h2>
+      <p>The system prompt tells the model not to invent exact statistics, policy clauses, citations, case names or measured results. When evidence is missing, the output should label the point as a hypothesis, data gap or item requiring verification.</p>
+
+      <h2>Step 3: Generate a fixed output structure</h2>
+      <ol>
+        <li>Topic interpretation</li>
+        <li>Executive summary</li>
+        <li>Research framework</li>
+        <li>Key findings or preliminary hypotheses</li>
+        <li>Policy, industry and spatial dimensions</li>
+        <li>Presentation outline</li>
+        <li>Data gaps and verification list</li>
+        <li>Next research tasks</li>
+        <li>Accuracy and use notice</li>
+      </ol>
+
+      <h2>Step 4: Verify before formal use</h2>
+      <p>Users should check every policy, statistic, case, date and citation against an original source. Generated content is a starting point for research, not verified evidence.</p>
+
+      <h2>Why the project does not claim two-stage generation yet</h2>
+      <p>The planned next version will first create a machine-readable outline, validate it for repetition and missing sections, expand each section separately and then assemble the final brief. That process will only be described as “implemented” after the code is complete.</p>
+
+      <div class="notice">
+        <strong>Current implementation:</strong> structured single-stage prompt.<br>
+        <strong>Planned iteration:</strong> outline JSON → validation → section expansion → final assembly.
+      </div>
+
+      <h2>What is recorded for content iteration</h2>
+      <ul>
+        <li>Prompt version and test date;</li>
+        <li>Research topic and user scenario;</li>
+        <li>Missing, generic or repeated sections;</li>
+        <li>Unverified claims or invented details;</li>
+        <li>User feedback and resulting prompt changes.</li>
+      </ul>
+
+      <div class="actions">
+        <a class="button" href="https://citymind-ai-research-assistant-i2bqorzpfcccwe7gr3ra87.streamlit.app/" target="_blank" rel="noopener">Try the Demo</a>
+        <a class="button-secondary" href="articles/citymind-prompt-design.html">Read the prompt-design article</a>
+      </div>
+    </article>
+  </div>
+</section>
+</main>
+
+  
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <strong>CityMind AI Research Assistant</strong><br>
+      A structured research starting point for urban planning and policy analysis.
+    </div>
+    <div>
+      <a href="https://citymind-ai-research-assistant-i2bqorzpfcccwe7gr3ra87.streamlit.app/" target="_blank" rel="noopener">Live Demo</a> ·
+      <a href="https://github.com/pengjingjingjing/CityMind-AI-Research-Assistant" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="seo-geo-case-study.html">SEO/GEO Case Study</a>
+      <br>Built by Peng Jing · Updated August 2026
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

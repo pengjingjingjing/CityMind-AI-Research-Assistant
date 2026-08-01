@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pengjingjingjing.github.io/CityMind-AI-Research-Assistant/sitemap.xml
