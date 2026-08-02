@@ -422,7 +422,7 @@ with st.sidebar:
     )
     configured_model = read_config("LLM_MODEL", "qwen-plus")
 
-    default_mode = 1 if configured_key else 0
+    default_mode = 0
     mode = st.radio(
         "Mode",
         ["Demo mode", "Live API mode"],
@@ -443,6 +443,9 @@ with st.sidebar:
     st.markdown(f"[Product website]({SITE_URL})")
     st.markdown(f"[GitHub repository]({GITHUB_URL})")
 
+# Keep the previous successful result visible across Streamlit reruns.
+result = st.session_state.get("citymind_result", "")
+
 if submitted:
     if not topic.strip():
         st.error("Please enter a research topic.")
@@ -450,7 +453,7 @@ if submitted:
         with st.spinner("Building the research brief..."):
             try:
                 if mode == "Demo mode":
-                    result = make_demo_output(
+                    generated_result = make_demo_output(
                         topic,
                         region,
                         scenario,
@@ -473,34 +476,33 @@ if submitted:
                         materials,
                         output_options,
                     )
-                    result = call_openai_compatible_api(
+                    generated_result = call_openai_compatible_api(
                         api_url.strip(),
                         api_key.strip(),
                         model.strip(),
                         messages,
                     )
 
+                if not isinstance(generated_result, str) or not generated_result.strip():
+                    raise ValueError(
+                        "The generated research brief was empty. "
+                        "Please try again or check the selected generation mode."
+                    )
+
+                result = generated_result
                 st.session_state["citymind_result"] = result
+
             except requests.Timeout:
                 st.error("The model request timed out. Please try again or use Demo mode.")
             except requests.RequestException as exc:
                 st.error(f"The model request failed: {exc}")
             except (ValueError, TypeError) as exc:
                 st.error(str(exc))
-if not isinstance(result, str) or not result.strip():
-    raise ValueError(
-        "The generated research brief was empty. "
-        "Please try again or check the selected generation mode."
-    )
-
-st.session_state["citymind_result"] = result
-
 
 if isinstance(result, str) and result.strip():
     st.divider()
-
     st.success(
-        f"Research brief generated successfully — "
+        f"Research brief generated successfully - "
         f"{len(result):,} characters. The full result is shown below."
     )
 
@@ -514,12 +516,6 @@ if isinstance(result, str) and result.strip():
         file_name="citymind_research_brief.md",
         mime="text/markdown",
         use_container_width=True,
-    )
-
-elif "citymind_result" in st.session_state:
-    st.error(
-        "The research brief was created, but the returned content was empty. "
-        "Please refresh the page and try again."
     )
 
 st.divider()
