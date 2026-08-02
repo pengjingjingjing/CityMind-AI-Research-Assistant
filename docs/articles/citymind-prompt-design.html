@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CityMind Prompt Design: Structured Output and Data-Gap Warnings</title>
+  <meta name="description" content="See how CityMind uses a structured single-stage prompt to control output order, evidence boundaries and research-task generation.">
+  <link rel="canonical" href="https://pengjingjingjing.github.io/CityMind-AI-Research-Assistant/articles/citymind-prompt-design.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="CityMind Prompt Design: Structured Output and Data-Gap Warnings">
+  <meta property="og:description" content="See how CityMind uses a structured single-stage prompt to control output order, evidence boundaries and research-task generation.">
+  <meta property="og:url" content="https://pengjingjingjing.github.io/CityMind-AI-Research-Assistant/articles/citymind-prompt-design.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="../assets/styles.css">
+  
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "CityMind Prompt Design: Structured Output and Data-Gap Warnings",
+  "description": "See how CityMind uses a structured single-stage prompt to control output order, evidence boundaries and research-task generation.",
+  "datePublished": "2026-08-01",
+  "dateModified": "2026-08-01",
+  "author": {"@type": "Person", "name": "Peng Jing"},
+  "mainEntityOfPage": "https://pengjingjingjing.github.io/CityMind-AI-Research-Assistant/articles/citymind-prompt-design.html"
+}
+</script>
+
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="../index.html">🏙️ CityMind</a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../how-it-works.html">How it works</a>
+      <a href="../accuracy-and-limitations.html">Accuracy</a>
+      <a href="../seo-geo-case-study.html">Case study</a>
+      <a class="button" href="https://citymind-ai-research-assistant-i2bqorzpfcccwe7gr3ra87.streamlit.app/" target="_blank" rel="noopener">Try the Demo</a>
+    </div>
+  </nav>
+</header>
+<main id="main">
+<section class="section">
+  <div class="container">
+    <div class="breadcrumbs"><a href="../index.html">Home</a> / Articles / CityMind Prompt Design: Structured Output and Data-Gap Warnings</div>
+    <article>
+      
+<div class="eyebrow">Prompt design and content quality</div>
+<h1>CityMind Prompt Design</h1>
+<p class="meta">By Peng Jing · Published August 2026</p>
+<div class="direct-answer">
+  CityMind currently uses a structured single-stage prompt. The prompt specifies the assistant role, content order, writing style and rules for uncertain or unsupported information.
+</div>
+<h2>Design goal</h2>
+<p>The goal is to produce a stable research starting point rather than an unrestricted conversational response.</p>
+<h2>Core prompt rules</h2>
+<ul>
+  <li>Do not invent exact statistics, policies, citations or case results;</li>
+  <li>Do not claim a source was checked unless the user supplied it;</li>
+  <li>Separate evidence, preliminary judgment and recommendation;</li>
+  <li>List missing evidence as data gaps;</li>
+  <li>End with concrete next research tasks.</li>
+</ul>
+<h2>Why use fixed headings?</h2>
+<p>Fixed headings make outputs easier to compare across topics, support testing and reduce the chance that important sections disappear inside a long answer.</p>
+<h2>Current limitation</h2>
+<p>A single model call can still produce repetition or uneven section depth. The planned next version will generate and validate an outline before expanding each section.</p>
+<h2>What should be tested?</h2>
+<ul>
+  <li>Section completeness;</li>
+  <li>Repetition and topic drift;</li>
+  <li>Unsupported factual claims;</li>
+  <li>Usefulness of data-gap warnings;</li>
+  <li>Consistency across different research topics.</li>
+</ul>
+<div class="actions"><a class="button" href="../how-it-works.html">Read the complete workflow</a><a class="button-secondary" href="https://github.com/pengjingjingjing/CityMind-AI-Research-Assistant/blob/main/Prompt_Design.md" target="_blank" rel="noopener">View prompt documentation</a></div>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div><strong>CityMind AI Research Assistant</strong><br>Urban planning and policy research starting points.</div>
+    <div><a href="https://citymind-ai-research-assistant-i2bqorzpfcccwe7gr3ra87.streamlit.app/" target="_blank" rel="noopener">Live Demo</a> · <a href="https://github.com/pengjingjingjing/CityMind-AI-Research-Assistant" target="_blank" rel="noopener">GitHub</a><br>Built by Peng Jing · Updated August 2026</div>
+  </div>
+</footer>
+</body>
+</html>
