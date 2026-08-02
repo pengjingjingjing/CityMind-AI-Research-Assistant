@@ -487,17 +487,39 @@ if submitted:
                 st.error(f"The model request failed: {exc}")
             except (ValueError, TypeError) as exc:
                 st.error(str(exc))
+if not isinstance(result, str) or not result.strip():
+    raise ValueError(
+        "The generated research brief was empty. "
+        "Please try again or check the selected generation mode."
+    )
 
-if "citymind_result" in st.session_state:
+st.session_state["citymind_result"] = result
+
+
+if isinstance(result, str) and result.strip():
     st.divider()
-    st.subheader("Generated research brief")
-    st.markdown(st.session_state["citymind_result"])
+
+    st.success(
+        f"Research brief generated successfully — "
+        f"{len(result):,} characters. The full result is shown below."
+    )
+
+    with st.container(border=True):
+        st.subheader("Generated research brief")
+        st.markdown(result)
+
     st.download_button(
         "Download Markdown",
-        data=st.session_state["citymind_result"],
+        data=result,
         file_name="citymind_research_brief.md",
         mime="text/markdown",
         use_container_width=True,
+    )
+
+elif "citymind_result" in st.session_state:
+    st.error(
+        "The research brief was created, but the returned content was empty. "
+        "Please refresh the page and try again."
     )
 
 st.divider()
